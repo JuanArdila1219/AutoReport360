@@ -1,0 +1,6 @@
+# Versiones directas verificadas en Python 3.12.7; dependencias transitivas sin bloqueo.
+pandas==3.1.1
+numpy==2.5.5
+openpyxl==3.1.5
+streamlit==1.67.0
+pytest==9.2.0

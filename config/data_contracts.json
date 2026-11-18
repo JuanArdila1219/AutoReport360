@@ -1,0 +1,7 @@
+{
+  "tiendas": {"kind": "master", "key": ["tienda_id"], "fields": {"tienda_id": "str", "nombre": "str", "ciudad": "str"}},
+  "productos": {"kind": "master", "key": ["producto_id"], "fields": {"producto_id": "str", "nombre": "str", "categoria": "str", "precio_lista_cop": "int", "costo_unitario_cop": "int"}},
+  "ventas": {"kind": "transaction", "key": ["transaccion_id"], "fields": {"transaccion_id": "str", "fecha": "date", "tienda_id": "str", "producto_id": "str", "unidades": "int", "precio_unitario_cop": "int", "descuento_pct": "int", "venta_neta_cop": "int", "costo_venta_cop": "int"}},
+  "inventarios": {"kind": "transaction", "key": ["fecha", "tienda_id", "producto_id"], "fields": {"fecha": "date", "tienda_id": "str", "producto_id": "str", "inventario_inicial": "int", "entradas": "int", "unidades_vendidas": "int", "inventario_final": "int", "costo_unitario_cop": "int"}},
+  "presupuestos": {"kind": "transaction", "key": ["fecha", "tienda_id"], "fields": {"fecha": "date", "tienda_id": "str", "meta_ventas_cop": "int"}}
+}

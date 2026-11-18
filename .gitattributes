@@ -1,0 +1,2 @@
+# Preserve the exact bytes and SHA-256 of the authorized source CSV files.
+data/simulated/*.csv -text whitespace=cr-at-eol

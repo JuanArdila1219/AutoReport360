@@ -1,0 +1,252 @@
+{
+  "tables": {
+    "tiendas": {
+      "rows": 30,
+      "columns": 3,
+      "fields": [
+        "tienda_id",
+        "nombre",
+        "ciudad"
+      ],
+      "types": {
+        "tienda_id": "str",
+        "nombre": "str",
+        "ciudad": "str"
+      },
+      "nulls": {
+        "tienda_id": 0,
+        "nombre": 0,
+        "ciudad": 0
+      },
+      "duplicate_rows": 0,
+      "duplicate_keys": 0,
+      "primary_key": [
+        "tienda_id"
+      ],
+      "negative_values": {},
+      "outliers_iqr": {},
+      "date_min": null,
+      "date_max": null,
+      "invalid_dates": 0,
+      "sha256": "7888138eafcd1bf5b82936f93111096ecf69f92fe0a9281d41728853b600a68d"
+    },
+    "productos": {
+      "rows": 60,
+      "columns": 5,
+      "fields": [
+        "producto_id",
+        "nombre",
+        "categoria",
+        "precio_lista_cop",
+        "costo_unitario_cop"
+      ],
+      "types": {
+        "producto_id": "str",
+        "nombre": "str",
+        "categoria": "str",
+        "precio_lista_cop": "int64",
+        "costo_unitario_cop": "int64"
+      },
+      "nulls": {
+        "producto_id": 0,
+        "nombre": 0,
+        "categoria": 0,
+        "precio_lista_cop": 0,
+        "costo_unitario_cop": 0
+      },
+      "duplicate_rows": 0,
+      "duplicate_keys": 0,
+      "primary_key": [
+        "producto_id"
+      ],
+      "negative_values": {
+        "precio_lista_cop": 0,
+        "costo_unitario_cop": 0
+      },
+      "outliers_iqr": {
+        "precio_lista_cop": 0,
+        "costo_unitario_cop": 0
+      },
+      "date_min": null,
+      "date_max": null,
+      "invalid_dates": 0,
+      "sha256": "168d3c3695fe8f2a72bd3866d9dfe36e147c67dcfda564cf49c4455bfdb7ecca"
+    },
+    "ventas": {
+      "rows": 38922,
+      "columns": 9,
+      "fields": [
+        "transaccion_id",
+        "fecha",
+        "tienda_id",
+        "producto_id",
+        "unidades",
+        "precio_unitario_cop",
+        "descuento_pct",
+        "venta_neta_cop",
+        "costo_venta_cop"
+      ],
+      "types": {
+        "transaccion_id": "str",
+        "fecha": "str",
+        "tienda_id": "str",
+        "producto_id": "str",
+        "unidades": "int64",
+        "precio_unitario_cop": "int64",
+        "descuento_pct": "int64",
+        "venta_neta_cop": "int64",
+        "costo_venta_cop": "int64"
+      },
+      "nulls": {
+        "transaccion_id": 0,
+        "fecha": 0,
+        "tienda_id": 0,
+        "producto_id": 0,
+        "unidades": 0,
+        "precio_unitario_cop": 0,
+        "descuento_pct": 0,
+        "venta_neta_cop": 0,
+        "costo_venta_cop": 0
+      },
+      "duplicate_rows": 0,
+      "duplicate_keys": 0,
+      "primary_key": [
+        "transaccion_id"
+      ],
+      "negative_values": {
+        "unidades": 0,
+        "precio_unitario_cop": 0,
+        "descuento_pct": 0,
+        "venta_neta_cop": 0,
+        "costo_venta_cop": 0
+      },
+      "outliers_iqr": {
+        "unidades": 0,
+        "precio_unitario_cop": 0,
+        "descuento_pct": 0,
+        "venta_neta_cop": 1613,
+        "costo_venta_cop": 1710
+      },
+      "date_min": "2026-10-01",
+      "date_max": "2026-10-31",
+      "invalid_dates": 0,
+      "sha256": "6ce93dc141f509e32e96da1859d22c13e17c5e79c9465872bf1a041e19e6cb96"
+    },
+    "inventarios": {
+      "rows": 55800,
+      "columns": 8,
+      "fields": [
+        "fecha",
+        "tienda_id",
+        "producto_id",
+        "inventario_inicial",
+        "entradas",
+        "unidades_vendidas",
+        "inventario_final",
+        "costo_unitario_cop"
+      ],
+      "types": {
+        "fecha": "str",
+        "tienda_id": "str",
+        "producto_id": "str",
+        "inventario_inicial": "int64",
+        "entradas": "int64",
+        "unidades_vendidas": "int64",
+        "inventario_final": "int64",
+        "costo_unitario_cop": "int64"
+      },
+      "nulls": {
+        "fecha": 0,
+        "tienda_id": 0,
+        "producto_id": 0,
+        "inventario_inicial": 0,
+        "entradas": 0,
+        "unidades_vendidas": 0,
+        "inventario_final": 0,
+        "costo_unitario_cop": 0
+      },
+      "duplicate_rows": 0,
+      "duplicate_keys": 0,
+      "primary_key": [
+        "fecha",
+        "tienda_id",
+        "producto_id"
+      ],
+      "negative_values": {
+        "inventario_inicial": 0,
+        "entradas": 0,
+        "unidades_vendidas": 0,
+        "inventario_final": 0,
+        "costo_unitario_cop": 0
+      },
+      "outliers_iqr": {
+        "inventario_inicial": 576,
+        "entradas": 4264,
+        "unidades_vendidas": 0,
+        "inventario_final": 904,
+        "costo_unitario_cop": 0
+      },
+      "date_min": "2026-10-01",
+      "date_max": "2026-10-31",
+      "invalid_dates": 0,
+      "sha256": "175305a6c0105a64823c843ff5d8547e612600ddb798ced904994ed092eda255"
+    },
+    "presupuestos": {
+      "rows": 930,
+      "columns": 3,
+      "fields": [
+        "fecha",
+        "tienda_id",
+        "meta_ventas_cop"
+      ],
+      "types": {
+        "fecha": "str",
+        "tienda_id": "str",
+        "meta_ventas_cop": "int64"
+      },
+      "nulls": {
+        "fecha": 0,
+        "tienda_id": 0,
+        "meta_ventas_cop": 0
+      },
+      "duplicate_rows": 0,
+      "duplicate_keys": 0,
+      "primary_key": [
+        "fecha",
+        "tienda_id"
+      ],
+      "negative_values": {
+        "meta_ventas_cop": 0
+      },
+      "outliers_iqr": {
+        "meta_ventas_cop": 0
+      },
+      "date_min": "2026-10-01",
+      "date_max": "2026-10-31",
+      "invalid_dates": 0,
+      "sha256": "29178fd6934831aa42a95ae8b7f91095f076e69a0ca92418226b129caaa45093"
+    }
+  },
+  "checks": {
+    "ventas_unknown_store": 0,
+    "ventas_unknown_product": 0,
+    "ventas_outside_october": 0,
+    "inventarios_unknown_store": 0,
+    "inventarios_unknown_product": 0,
+    "inventarios_outside_october": 0,
+    "presupuestos_unknown_store": 0,
+    "presupuestos_outside_october": 0,
+    "inventory_balance_errors": 0,
+    "inventory_continuity_errors": 0,
+    "sales_inventory_mismatches": 0,
+    "sales_value_errors": 0,
+    "sales_cost_errors": 0,
+    "sales_price_differs_from_list": 0,
+    "inventory_cost_differs_from_catalog": 0,
+    "invalid_discounts": 0,
+    "missing_store_day_budgets": 0,
+    "missing_inventory_combinations": 0,
+    "sales_without_budget": 0
+  },
+  "total_rows": 95742
+}
