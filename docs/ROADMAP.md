@@ -15,3 +15,7 @@ Fase 02: extracción y validación local con evidencia persistente y prevención
 Fase 03: persistencia local e indicadores. Fase 04 recomendada: definir presentación y distribución a partir de contratos de salida, pruebas de operación y políticas de respaldo, retención y cambios de maestros; cualquier integración externa requiere autorización.
 
 Hito 01: auditoría de fases 00–03 y publicación autorizada con ambos Word académicos excluidos. Antes de añadirlos, revisar la autorización y los metadatos personales de la plantilla. A continuación, reforzar ensayos de interrupción real y concurrencia, y definir cambios de maestros y respaldos.
+
+Fase 04: reportes locales Excel y PDF basados en salidas oficiales. Para la Fase 05, acordar el alcance y criterios de distribución o visualización antes de implementar; cerrar políticas de respaldo, retención e historización y probar interrupciones reales y concurrencia.
+
+Hito 02: defecto de reutilización corregido y validado para su cierre. Quedan pendientes la revisión visual del Excel en escritorio, la política de recuperación de reportes corruptos y pruebas reales de concurrencia e interrupción. La Fase 05 requiere alcance y autorización independientes.

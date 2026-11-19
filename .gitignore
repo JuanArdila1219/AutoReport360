@@ -36,6 +36,9 @@ reports/*
 !reports/01_data_quality.json
 !reports/02_validation_engine.md
 !reports/03_commercial_indicators.md
+!reports/04_automated_reporting.md
+!reports/audit_hito02.md
+!reports/publication_hito02.txt
 !reports/audit_hito01.md
 !reports/publication_hito01.txt
 AutoReport360_Hito1/

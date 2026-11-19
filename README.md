@@ -2,7 +2,7 @@
 
 Trabajo final de Automatizaciones de la Especialización en Analítica de Datos de UNAULA. El proyecto plantea automatizar la consolidación, validación, análisis y distribución de información comercial de la empresa ficticia NovaRetail Colombia S.A.S.
 
-**Estado:** Fase 03: validación, persistencia local e indicadores. No hay dashboard ni integraciones externas.
+**Estado:** Fase 04: validación, persistencia, indicadores y reportes locales Excel/PDF. No hay aplicación Streamlit ni integraciones externas.
 
 ## Contexto y alcance previsto
 
@@ -43,3 +43,9 @@ Para recuperar ejecuciones interrumpidas del protocolo nuevo: `.venv/Scripts/pyt
 ## Auditoría y publicación inicial
 
 La [auditoría del Hito 01](reports/audit_hito01.md) documenta validaciones, resultados y riesgos. El [listado autorizado](reports/publication_hito01.txt) excluye ambos Word académicos, que permanecen locales; la plantilla contiene metadatos personales. El 300,15 % de cumplimiento es una característica observada en los datos ficticios, no un resultado real. La rotación implementada usa unidades y promedio de inventario por extremos, distinta de la propuesta valorizada del documento histórico.
+
+## Fase 04 — reportes locales
+
+Ejecutar `.venv/Scripts/python.exe scripts/generate_reports.py RUTA_DE_LA_EJECUCION --output-dir reports/generated --format both`. También se admite `excel` o `pdf`. El destino contiene un directorio por combinación de origen, formato y versión, con manifiesto y huellas; las solicitudes idénticas se omiten tras verificar los archivos. La ejecución del pipeline sigue igual. Los resultados generados no se incluyen en Git. Consultar [diseño](docs/REPORTING_DESIGN.md) y [evidencia](reports/04_automated_reporting.md).
+
+**Auditoría Hito 02:** se corrigió la reutilización de informes anteriores mediante versión y huella del generador en la clave de idempotencia. Véase [audit_hito02.md](reports/audit_hito02.md). Permanecen pendientes la revisión visual del Excel en escritorio, la política de recuperación de reportes corruptos y las pruebas reales de concurrencia e interrupción.
