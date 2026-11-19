@@ -1,5 +1,20 @@
 # Registro de cambios
 
+## Hito 03
+
+- Auditoría de las fases 05 y 05.1, validación del modo local, proveedor simulado, contingencia, idempotencia, compatibilidad y huellas. Ver `reports/audit_hito03.md`.
+- Registro de pendientes y listado explícito de publicación; sin activación real de IA.
+
+## Fase 05.1
+
+- Motor 1.1.0 con umbrales académicos configurables, oportunidades condicionadas y recomendaciones trazables; admite contrato 1.0.0.
+- Informes enriquecidos con resumen, responsables sugeridos y alternativas de disponibilidad; sin modificar KPI ni llamar proveedores externos.
+
+## 2026-11-19 — Fase 05
+
+- Análisis local con evidencias y proveedor inyectable con contingencia; sin solicitudes externas.
+- Integración opcional de análisis validado en reportes, huellas y pruebas sin conexión.
+
 ## 2026-11-19 — Cierre Hito 02
 
 - Auditoría final de reportes automáticos, visualización e idempotencia por huella.

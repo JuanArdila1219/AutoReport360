@@ -1,5 +1,9 @@
 # Diseño de reportes — Fase 04
 
+Fase 05.1: el Excel incorpora resumen dinámico, hallazgos, oportunidades, recomendaciones, responsables sugeridos y combinaciones agotadas. El PDF presenta hasta cinco recomendaciones priorizadas y evidencia. La huella del análisis sigue formando parte de la identidad; los indicadores proceden del contrato de Fase 03 sin recalcularse. Se conserva compatibilidad con análisis 1.0.0.
+
+En Fase 05 `--analysis` incorpora opcionalmente hallazgos validados y recomendaciones en Excel y PDF. El SHA-256 del análisis interviene en la clave de generación. Sin ese argumento se conserva el flujo anterior. La modalidad local no se presenta como IA generativa.
+
 El generador independiente consume los diez archivos del contrato 3.0. Comprueba manifiesto, identificadores, periodo, versión, presencia de archivos, claves y granularidad, fechas, ventas agregadas y presupuesto diario frente al resumen, y consistencia de las marcas de baja rotación. Reutiliza los indicadores oficiales; cuenta las marcas de agotado y baja rotación ya calculadas para presentarlas. El manifiesto de Fase 03 no incluye huellas de sus archivos, por lo que no puede autenticarse su procedencia retrospectivamente: las comprobaciones detectan inconsistencias, no toda manipulación coordinada.
 
 La identidad visual centralizada en `src/reporting/theme.py` usa la paleta solicitada. El Excel incluye portada, tablero con diez indicadores, seis gráficos nativos, navegación y hojas de detalle, calidad y metodología. Las tablas vacías conservan encabezados; los valores ausentes permanecen vacíos o como «No disponible». El PDF usa ReportLab y gráficos vectoriales locales. Las conclusiones son descriptivas y no atribuyen causas.

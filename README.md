@@ -1,5 +1,15 @@
 # AutoReport360
 
+## Fase 05.1 — recomendaciones comerciales
+
+El análisis local 1.1 incorpora reglas configurables, recomendaciones sustentadas y oportunidades condicionadas. Los resultados están en [evidencia](reports/05_ai_analysis.md); las áreas y horizontes son propuestas académicas. La conexión generativa real continúa desactivada.
+
+El cierre del Hito 03 se documenta en [auditoría](reports/audit_hito03.md) y [listado de publicación](reports/publication_hito03.txt). La revisión del Excel en escritorio y la activación real de proveedores permanecen pendientes.
+
+## Fase 05 — análisis comercial
+
+`.venv/Scripts/python.exe scripts/run_ai_analysis.py RUTA_ORIGEN --mode local` genera un JSON de reglas locales. Para enriquecer reportes: `.venv/Scripts/python.exe scripts/generate_reports.py RUTA_ORIGEN --analysis RUTA_ANALISIS.json --format both`. La CLI no conecta servicios y ante indisponibilidad usa contingencia local. Consultar [diseño](docs/AI_ANALYSIS_DESIGN.md), [contrato](docs/AI_OUTPUT_CONTRACT.md) y [evidencia](reports/05_ai_analysis.md).
+
 Trabajo final de Automatizaciones de la Especialización en Analítica de Datos de UNAULA. El proyecto plantea automatizar la consolidación, validación, análisis y distribución de información comercial de la empresa ficticia NovaRetail Colombia S.A.S.
 
 **Estado:** Fase 04: validación, persistencia, indicadores y reportes locales Excel/PDF. No hay aplicación Streamlit ni integraciones externas.

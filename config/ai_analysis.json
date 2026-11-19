@@ -1,0 +1,12 @@
+{
+  "high_stockouts": 1,
+  "low_margin_percent": 20,
+  "budget_target_percent": 100,
+  "budget_exceptional_percent": 200,
+  "variation_alert_percent": 10,
+  "medium_quality_warnings": 1,
+  "medium_low_rotation": 1,
+  "high_priority": "alta",
+  "medium_priority": "media",
+  "low_priority": "baja"
+}

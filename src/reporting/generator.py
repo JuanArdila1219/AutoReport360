@@ -39,11 +39,11 @@ def generator_fingerprint() -> str:
     return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
 
 
-def generate(source_dir: Path, output_dir: Path, output_format: str = "both") -> dict:
+def generate(source_dir: Path, output_dir: Path, output_format: str = "both", analysis_path: Path | None = None) -> dict:
     """Record failures separately without exposing an incomplete final report."""
     started = time.perf_counter(); generation_id = str(uuid.uuid4())
     try:
-        return _generate(source_dir, output_dir, output_format)
+        return _generate(source_dir, output_dir, output_format, analysis_path)
     except Exception as exc:
         failures = output_dir / ".failures"
         failures.mkdir(parents=True, exist_ok=True)
@@ -52,13 +52,20 @@ def generate(source_dir: Path, output_dir: Path, output_format: str = "both") ->
         raise
 
 
-def _generate(source_dir: Path, output_dir: Path, output_format: str = "both") -> dict:
+def _generate(source_dir: Path, output_dir: Path, output_format: str = "both", analysis_path: Path | None = None) -> dict:
     """Create verified reports as an atomic, content-addressed output directory."""
     if output_format not in {"excel", "pdf", "both"}:
         raise ValueError("Formato no admitido")
     start = time.perf_counter(); source = load_source(source_dir)
     fingerprint = generator_fingerprint()
     identity = {"hashes": source["hashes"], "format": output_format, "generator_version": GENERATOR_VERSION, "generator_fingerprint": fingerprint}
+    if analysis_path is not None:
+        from src.ai_analysis.engine import validate_for_reporting
+        raw_analysis = analysis_path.read_bytes()
+        analysis = json.loads(raw_analysis)
+        validate_for_reporting(analysis, source)
+        source["analysis"] = analysis
+        identity["analysis_sha256"] = hashlib.sha256(raw_analysis).hexdigest()
     request_key = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
     output_dir.mkdir(parents=True, exist_ok=True)
     target = output_dir / request_key
@@ -94,7 +101,7 @@ def _generate(source_dir: Path, output_dir: Path, output_format: str = "both") -
             if path.stat().st_size == 0: raise ValueError("Archivo generado vacío")
             names.append(name); timings[fmt] = round(time.perf_counter() - tick, 6)
         files = [{"name": n, "bytes": (temporary / n).stat().st_size, "sha256": hashlib.sha256((temporary / n).read_bytes()).hexdigest()} for n in names]
-        manifest = {"generation_id": generation_id, "pipeline_run_id": source["manifest"]["pipeline_run_id"], "generated_at": generated, "status": "SUCCESS", "request_key": request_key, "generator_version": GENERATOR_VERSION, "generator_fingerprint": fingerprint, "source_hashes": source["hashes"], "format": output_format, "files": files, "durations_seconds": timings, "duration_total_seconds": round(time.perf_counter() - start, 6), "errors": [], "warnings": ["La calidad histórica acumulada no está disponible en el contrato de origen."]}
+        manifest = {"generation_id": generation_id, "pipeline_run_id": source["manifest"]["pipeline_run_id"], "generated_at": generated, "status": "SUCCESS", "request_key": request_key, "generator_version": GENERATOR_VERSION, "generator_fingerprint": fingerprint, "analysis_sha256": identity.get("analysis_sha256"), "source_hashes": source["hashes"], "format": output_format, "files": files, "durations_seconds": timings, "duration_total_seconds": round(time.perf_counter() - start, 6), "errors": [], "warnings": ["La calidad histórica acumulada no está disponible en el contrato de origen."]}
         (temporary / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
         os.rename(temporary, target); temporary = None
         return {**manifest, "output_dir": str(target)}

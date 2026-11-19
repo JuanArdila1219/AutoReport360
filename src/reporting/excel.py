@@ -154,6 +154,31 @@ def build_excel(source: dict, destination: Path, generated_at: str) -> None:
     for row, text in enumerate(findings, 6):
         conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
         cell = conclusions.cell(row, 2, text); cell.font = Font(name="Aptos", size=11, color=COLORS["navy"]); cell.alignment = Alignment(vertical="center", wrap_text=True, indent=1); cell.fill = PatternFill("solid", fgColor=COLORS["light"] if row % 2 == 0 else COLORS["white"]); conclusions.row_dimensions[row].height = 35
+    if "analysis" in source:
+        analysis = source["analysis"]
+        row = len(findings) + 8
+        conclusions.cell(row, 2, "ANÁLISIS COMERCIAL — " + ("GENERATIVO SIMULADO" if analysis["mode"] == "generative" else "REGLAS LOCALES" if analysis["mode"] == "local" else "CONTINGENCIA LOCAL")).font = Font(bold=True, color=COLORS["petrol"])
+        row += 1; conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
+        cell = conclusions.cell(row, 2, "Resumen: " + analysis["executive_summary"]); cell.font = Font(bold=True, color=COLORS["navy"]); cell.alignment = Alignment(wrap_text=True, vertical="center"); conclusions.row_dimensions[row].height = 55
+        row += 1; conclusions.cell(row, 2, "Hallazgos, evidencias y recomendaciones priorizadas").font = Font(bold=True, color=COLORS["petrol"])
+        for item in sorted(analysis["findings"], key=lambda x: {"alta": 0, "media": 1, "baja": 2}[x["prioridad"]]):
+            row += 1; conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
+            evidence = item["evidencia"]
+            evidence_value = formatted(evidence['valor']) if evidence['valor'] is not None else "no disponible"
+            text = f"[{item['prioridad']}] {item['descripcion']}: {evidence_value} {evidence['unidad']} ({evidence['fuente']}). {item['accion']}"
+            cell = conclusions.cell(row, 2, _value(text)); cell.alignment = Alignment(wrap_text=True, vertical="center", indent=1); conclusions.row_dimensions[row].height = 45
+        row += 1; conclusions.cell(row, 2, "Riesgos: " + (", ".join(analysis["risks"]) if analysis["risks"] else "ninguno identificado"))
+        row += 1; conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
+        cell = conclusions.cell(row, 2, "Oportunidades: " + (" ".join(x['descripcion'] for x in analysis['opportunities']) if analysis['opportunities'] else "no se identificaron con las reglas actuales.")); cell.alignment = Alignment(wrap_text=True); conclusions.row_dimensions[row].height = 45
+        for rec in analysis['recommendations']:
+            if 'responsable_sugerido' not in rec: continue
+            row += 1; conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
+            evidence = rec['evidencia']
+            cell = conclusions.cell(row, 2, _value(f"[{rec['priority']}] {rec['action']} Responsable sugerido: {rec['responsable_sugerido']}; horizonte: {rec['horizonte_sugerido']}. Evidencia: {evidence['valor']} {evidence['unidad']} ({rec['fuente']}). Condiciones: {rec['condiciones_limitaciones']}")); cell.alignment = Alignment(wrap_text=True, vertical="center"); conclusions.row_dimensions[row].height = 75
+            for combination in evidence.get('combinaciones', []):
+                row += 1; conclusions.merge_cells(start_row=row, start_column=2, end_row=row, end_column=8)
+                candidates = ', '.join(combination['tiendas_candidatas']) or 'ninguna identificada'
+                cell = conclusions.cell(row, 2, _value(f"{combination['tienda_id']} / {combination['producto_id']}; tiendas con saldo positivo: {candidates}.")); cell.alignment = Alignment(wrap_text=True, vertical="center"); conclusions.row_dimensions[row].height = 45
     for index, name in enumerate(["Dashboard"] + list(SHEETS.values()) + ["Agotados", "Calidad de datos", "Metodología", "Conclusiones ejecutivas"], 17):
         home.merge_cells(start_row=index, start_column=2, end_row=index, end_column=4)
         cell = home.cell(index, 2, "→  " + name); cell.hyperlink = f"#'{name}'!A1"; cell.style = "Hyperlink"; home.row_dimensions[index].height = 21

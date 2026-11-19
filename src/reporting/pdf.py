@@ -86,6 +86,21 @@ def build_pdf(source: dict, destination: Path, generated_at: str) -> None:
         p("Revisar las advertencias del último lote y confirmar su interpretación comercial antes de distribuir el informe.")
     else:
         p("Verificar las alertas de calidad en la siguiente ejecución antes de distribuir el informe.")
+    if "analysis" in source:
+        analysis = source["analysis"]
+        p("Análisis comercial complementario", "Heading1")
+        p("Modalidad: " + ("generativo simulado" if analysis["mode"] == "generative" else "reglas locales" if analysis["mode"] == "local" else "contingencia local"))
+        p(analysis["executive_summary"])
+        p("Alertas y recomendaciones priorizadas", "Heading2")
+        if analysis.get('engine_version') == '1.0.0':
+            for item in sorted(analysis["findings"], key=lambda x: {"alta": 0, "media": 1, "baja": 2}[x["prioridad"]]):
+                evidence = item["evidencia"]
+                p(f"[{item['prioridad']}] {item['descripcion']}: {display(evidence['valor'])} {evidence['unidad']} ({evidence['fuente']}). {item['accion']}")
+        else:
+            for rec in analysis['recommendations'][:5]:
+                evidence = rec['evidencia']
+                p(f"[{rec['priority']}] {rec['descripcion']}: {display(evidence['valor'])} {evidence['unidad']} ({rec['fuente']}). {rec['action']} Responsable sugerido: {rec['responsable_sugerido']}.")
+        p("Oportunidades: " + (" ".join(x['descripcion'] for x in analysis['opportunities']) if analysis['opportunities'] else "no se identificaron con las reglas actuales."))
     p("Metodología y limitaciones", "Heading1")
     for item in METHODOLOGY: p(item)
     def footer(canvas, doc):

@@ -17,9 +17,10 @@ def main() -> int:
     parser.add_argument("source", type=Path)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "reports" / "generated")
     parser.add_argument("--format", choices=("excel", "pdf", "both"), default="both")
+    parser.add_argument("--analysis", type=Path, help="Optional validated analysis JSON")
     args = parser.parse_args()
     try:
-        result = generate(args.source, args.output_dir, args.format)
+        result = generate(args.source, args.output_dir, args.format, args.analysis)
     except Exception as exc:
         print(json.dumps({"status": "FAILED", "errors": [f"{type(exc).__name__}: {exc}"]}, ensure_ascii=False), file=sys.stderr)
         return 1

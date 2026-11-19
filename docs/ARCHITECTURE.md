@@ -1,5 +1,9 @@
 # Arquitectura preliminar
 
+Fase 05.1 incorpora `src/ai_analysis/commercial_rules.py` como capa determinística sobre el catálogo y las fuentes validadas. La huella incluye sus módulos, configuración e instrucciones; el generador valida el contrato y enlaza su SHA-256. No hay conexiones reales ni decisiones automáticas.
+
+Fase 05: un análisis de reglas consume la salida validada y produce hechos con evidencia; un proveedor inyectable selecciona únicamente IDs existentes. Los informes reciben opcionalmente ese JSON y validan su vínculo con el origen. La CLI mantiene deshabilitado el acceso externo y usa contingencia local ante fallo.
+
 Propuesta conceptual sujeta a validación de fuentes, contratos, fórmulas y canales. Ningún componente del flujo está implementado en Fase 00.
 
 ```mermaid

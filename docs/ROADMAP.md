@@ -1,5 +1,11 @@
 # Hoja de ruta
 
+Fase 05.1: fortalecimiento local con recomendaciones basadas en evidencia. Pendientes: revisión visual de Excel en escritorio, recuperación de reportes corruptos, pruebas reales de concurrencia/interrupción y validación separada de cualquier proveedor externo.
+
+Hito 03: auditoría y publicación de las fases 05 y 05.1. Pendientes adicionales: respaldo, retención e historización de maestros. Mejoras menores: localización de cifras en español colombiano e identificación explícita de segmentos destacados.
+
+Fase 05: análisis local y proveedor simulado con contingencia; antes de cualquier activación real se requieren autorización explícita y pruebas de integración, privacidad y costos. La Fase 06 queda pendiente de definición y autorización.
+
 1. **Identificación:** precisar problema, actores, fuentes, reglas, indicadores y criterios de aceptación.
 2. **Diseño:** acordar contratos de datos, arquitectura, seguridad, trazabilidad y distribución; evaluar IA y servicios antes de cualquier integración.
 3. **Evaluación económica:** validar fórmula, horizonte, costos y supuestos; distinguir proyecciones de mediciones.

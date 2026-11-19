@@ -37,6 +37,9 @@ reports/*
 !reports/02_validation_engine.md
 !reports/03_commercial_indicators.md
 !reports/04_automated_reporting.md
+!reports/05_ai_analysis.md
+!reports/audit_hito03.md
+!reports/publication_hito03.txt
 !reports/audit_hito02.md
 !reports/publication_hito02.txt
 !reports/audit_hito01.md
