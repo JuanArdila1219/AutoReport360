@@ -1,5 +1,7 @@
 # Arquitectura preliminar
 
+Fase 07 incorpora `app/catalog.py` y `app/dashboard.py`: el catálogo limita la lectura a raíces locales conocidas, valida salidas con el lector oficial y contrasta análisis y huellas antes de ofrecer reportes. Streamlit presenta métricas existentes sin ejecutar ni modificar el pipeline. El manifiesto de Fase 03 no autentica retrospectivamente sus archivos; las comprobaciones no sustituyen controles de procedencia.
+
 Fase 06 agrega una capa local: bandeja con marcador y huellas → pipeline existente → análisis local → informes enriquecidos verificados → borrador de distribución local. Un diario por contenido y bloqueo de espacio facilitan reintentos y evitan borradores repetidos; la cuarentena requiere una opción explícita.
 
 Según la evidencia manual comunicada por el usuario, se creó el flujo **AutoReport360 - Procesamiento Comercial** en Power Automate Desktop, que invoca el motor Python. Se probaron SUCCESS, SKIPPED, REJECTED y FAILED, las notificaciones, la detención ante JSON inválido y una excepción controlada de PowerShell. No se ha implementado el envío real de correos. La plantilla del repositorio no puede declararse idéntica al bloque de PAD sin una exportación completa verificable. No se ha implementado automatización desatendida ni integración de Power Automate Cloud.

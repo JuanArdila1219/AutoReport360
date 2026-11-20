@@ -1,5 +1,30 @@
 # Registro de cambios
 
+## Cierre de auditoría del Hito 05
+
+- Registrada la revisión manual confirmada de las seis secciones y de las tarjetas y navegación finales; la causa del error previo `removeChild` continúa sin confirmar.
+
+## Ajuste final de tarjetas
+
+- Abreviación monetaria a millones con `M`, importe completo en la ayuda y verificación local en Chrome sin traducción. El error de interfaz reportado no se reprodujo; permanece pendiente de comprobación con el usuario. Se observó traducción automática en Chrome como posible factor, sin atribuirle causalidad confirmada.
+
+## Preparación de cierre académico
+
+- Auditoría local de Fase 07, corrección de contraste de texto pequeño y registro de revisión visual pendiente.
+- Evaluación económica con horizonte, costos, fórmulas y escenarios explícitos; documentación académica, guion y lista de evidencias para revisión.
+- No se enviaron correos ni se publicaron cambios.
+
+## Consolidación de fases 07–09
+
+- Presentación de KPI en millones con detalle completo, títulos por sección, tablas comerciales, detalle diario y recomendaciones organizadas; revisión del usuario por capturas registrada separadamente de las pruebas técnicas.
+- Clasificación de generaciones históricas verificadas y no verificables, con el motivo disponible y bloqueo de descarga. La generación histórica cuyo análisis no supera el contrato actual se conserva intacta.
+- Guía de usuario, evidencia mínima para sustentación y comprobación de los escenarios económicos; sin publicación.
+
+## Fase 07
+
+- Dashboard Streamlit local de seis secciones, catálogo restringido y descargas verificadas sin regeneración de informes.
+- Pruebas de contratos, evidencia, archivos alterados y carga técnica mediante AppTest; revisión visual en navegador pendiente.
+
 ## Auditoría del Hito 04
 
 - Se registraron las pruebas manuales de PAD comunicadas por el usuario y se identificó una diferencia entre el contrato de excepción indicado y la plantilla local.

@@ -42,6 +42,8 @@ reports/*
 !reports/04_automated_reporting.md
 !reports/05_ai_analysis.md
 !reports/06_automation.md
+!reports/07_dashboard.md
+!reports/audit_hito05.md
 !reports/audit_hito03.md
 !reports/audit_hito04.md
 !reports/publication_hito03.txt

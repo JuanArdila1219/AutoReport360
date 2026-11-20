@@ -1,5 +1,17 @@
 # AutoReport360
 
+## Fase 07 — dashboard local
+
+Desde la raíz del proyecto, ejecutar:
+
+```powershell
+.venv/Scripts/python.exe -m streamlit run app/dashboard.py
+```
+
+Abrir la dirección local mostrada en la terminal. La aplicación solo lee ejecuciones existentes de las carpetas conocidas y no ejecuta el pipeline; utiliza datos ficticios y valida sus contratos. Las seis secciones, límites de granularidad y descargas verificadas se describen en la [guía de usuario](docs/USER_GUIDE.md) y el [diseño del dashboard](docs/DASHBOARD_DESIGN.md). El usuario confirmó la revisión mediante capturas de las seis secciones y la comprobación final de tarjetas y navegación; no sustituyen una auditoría de accesibilidad. La causa del error `removeChild` anteriormente observado sigue sin confirmar.
+
+El cierre académico incluye la [auditoría final](reports/audit_hito05.md), la [evaluación económica](docs/ECONOMIC_EVALUATION.md), el [documento académico](docs/ACADEMIC_REPORT.md), el [guion de sustentación](docs/PRESENTATION_SCRIPT.md) y la [lista de evidencias](docs/EVIDENCE_CHECKLIST.md).
+
 ## Fase 06 — orquestación local
 
 La integración con PAD fue probada manualmente según la evidencia comunicada por el usuario. La [plantilla local canónica](automation/pad_action_template.ps1) incluye `automation_id = 'NO_DISPONIBLE'` ante excepciones técnicas; no existe una exportación completa posterior a la última edición para verificar su igualdad exacta con el bloque de PAD. Ver [auditoría del Hito 04](reports/audit_hito04.md).
@@ -20,7 +32,7 @@ El cierre del Hito 03 se documenta en [auditoría](reports/audit_hito03.md) y [l
 
 Trabajo final de Automatizaciones de la Especialización en Analítica de Datos de UNAULA. El proyecto plantea automatizar la consolidación, validación, análisis y distribución de información comercial de la empresa ficticia NovaRetail Colombia S.A.S.
 
-**Estado:** fases 00 a 06.2 implementadas; el Hito 04 consolida la integración local con PAD. El usuario confirmó pruebas manuales de PAD; la igualdad exacta del bloque requiere una exportación para compararse. No hay aplicación Streamlit ni envío de correo.
+**Estado:** Fase 07 implementa un dashboard Streamlit probado; Fase 08 documenta la evaluación económica académica; Fase 09 reúne la documentación y materiales de sustentación. El usuario confirmó revisión visual del dashboard y pruebas manuales de PAD; la igualdad exacta del bloque requiere una exportación para compararse. No hay envío de correo.
 
 ## Instalación local en Windows
 
@@ -30,17 +42,17 @@ Con Python 3.12 instalado, desde la raíz del proyecto: `python -m venv .venv`, 
 
 Inteligencia Comercial cuenta con 30 tiendas, 60 productos de textil, calzado y accesorios y 5 analistas; la moneda es COP. El flujo previsto recibe archivos, valida y consolida datos, calcula indicadores, genera reportes y resúmenes con IA configurable y distribuye resultados. La integración de servicios externos requiere autorización previa.
 
-Indicadores previstos: ventas, unidades, cumplimiento presupuestal, ticket promedio, rotación, agotados, productos más vendidos, baja rotación y crecimiento de ventas. Sus fórmulas y datos necesarios se acordarán antes de implementarlos.
+Los indicadores implementados y sus límites están definidos en [KPI](docs/KPI_DEFINITIONS.md); no se calcula crecimiento mensual frente a septiembre sin datos comparables.
 
 ## Supuestos académicos
 
-Se plantean 60 minutos manuales frente a 5 minutos de intervención humana por ejecución, 22 ejecuciones mensuales, costo de hora de 25.000 COP, inversión inicial de 2.000.000 COP y ROI proyectado de 202,5 %. **Son supuestos, no resultados medidos.** La duración del robot es independiente del tiempo de intervención humana. La fórmula, horizonte y costos incluidos en el ROI deben documentarse y verificarse en la evaluación económica.
+Se plantean 60 minutos manuales frente a 5 minutos de intervención humana por ejecución, 22 ejecuciones mensuales, costo de hora de 25.000 COP, inversión inicial de 2.000.000 COP y ROI proyectado de 202,5 %. **Son supuestos, no resultados medidos.** La duración del robot es independiente del tiempo de intervención humana. El ROI corresponde a 12 meses y supone costos recurrentes cero; el detalle y la sensibilidad figuran en la [evaluación económica](docs/ECONOMIC_EVALUATION.md).
 
 ## Organización y próximos pasos
 
 Los documentos de trabajo se encuentran en [docs](docs/PROJECT_SPEC.md); el plan está en [docs/ROADMAP.md](docs/ROADMAP.md) y la arquitectura en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Los datos ficticios incorporados se conservan en `data/simulated/` sin sobrescritura ni regeneración.
 
-Se emplean Python, Pandas, OpenPyXL y Pytest; el análisis local está implementado. Streamlit, Power Automate Cloud y las conexiones reales de IA siguen sujetos a autorización y trabajo posterior.
+Se emplean Python, Pandas, OpenPyXL, Pytest y Streamlit; el análisis y el dashboard locales están implementados. Power Automate Cloud permanece como diseño documental y las conexiones reales de IA requieren autorización y trabajo posterior.
 
 ## Fase 01 — datos simulados
 

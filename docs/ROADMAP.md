@@ -1,5 +1,9 @@
 # Hoja de ruta
 
+Fases 08 y 09: evaluación económica y documentación académica preparadas para revisión. El ROI es una proyección de primer año con costos recurrentes supuestos en cero; faltan mediciones de tiempo humano y costos reales. La selección de evidencias y la publicación requieren pasos independientes.
+
+Fase 07: dashboard Streamlit local de solo lectura. El usuario confirmó revisión mediante capturas y comprobación final de tarjetas y navegación. La causa del `removeChild` reportado sigue sin confirmar; quedan pendientes una evaluación de accesibilidad y cualquier despliegue o conexión externa autorizados.
+
 Hito 04: corregido el campo `automation_id` de contingencia en la plantilla local canónica. Queda pendiente comparar el bloque completo de PAD con una exportación posterior a la última edición. La regeneración de archivados requiere una operación futura explícita, autorizada y auditable, aún no implementada.
 
 Fase 06.1: clasificación explícita de lotes archivados, inexistentes, incompletos e inválidos, y consulta local de pendientes. La integración de la consulta en PAD queda para una sesión posterior.
