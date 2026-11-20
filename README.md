@@ -1,5 +1,13 @@
 # AutoReport360
 
+## Fase 06 — orquestación local
+
+La integración con PAD fue probada manualmente según la evidencia comunicada por el usuario. La [plantilla local canónica](automation/pad_action_template.ps1) incluye `automation_id = 'NO_DISPONIBLE'` ante excepciones técnicas; no existe una exportación completa posterior a la última edición para verificar su igualdad exacta con el bloque de PAD. Ver [auditoría del Hito 04](reports/audit_hito04.md).
+
+Fase 06.1 verifica las evidencias de lotes ya archivados antes de devolver `SKIPPED`; también permite consultar la bandeja sin procesarla. Ver [diseño](docs/AUTOMATION_DESIGN.md) y [condiciones para PAD](docs/POWER_AUTOMATE_DESKTOP_GUIDE.md).
+
+La bandeja local, el marcador de recepción, la recuperación y la ejecución se describen en [diseño de automatización](docs/AUTOMATION_DESIGN.md); los resultados están en [evidencia de la fase](reports/06_automation.md). La integración de escritorio se documenta en la [guía de PAD](docs/POWER_AUTOMATE_DESKTOP_GUIDE.md); [Cloud](docs/POWER_AUTOMATE_CLOUD_DESIGN.md) es exclusivamente documental. No se envían correos.
+
 ## Fase 05.1 — recomendaciones comerciales
 
 El análisis local 1.1 incorpora reglas configurables, recomendaciones sustentadas y oportunidades condicionadas. Los resultados están en [evidencia](reports/05_ai_analysis.md); las áreas y horizontes son propuestas académicas. La conexión generativa real continúa desactivada.
@@ -12,7 +20,11 @@ El cierre del Hito 03 se documenta en [auditoría](reports/audit_hito03.md) y [l
 
 Trabajo final de Automatizaciones de la Especialización en Analítica de Datos de UNAULA. El proyecto plantea automatizar la consolidación, validación, análisis y distribución de información comercial de la empresa ficticia NovaRetail Colombia S.A.S.
 
-**Estado:** Fase 04: validación, persistencia, indicadores y reportes locales Excel/PDF. No hay aplicación Streamlit ni integraciones externas.
+**Estado:** fases 00 a 06.2 implementadas; el Hito 04 consolida la integración local con PAD. El usuario confirmó pruebas manuales de PAD; la igualdad exacta del bloque requiere una exportación para compararse. No hay aplicación Streamlit ni envío de correo.
+
+## Instalación local en Windows
+
+Con Python 3.12 instalado, desde la raíz del proyecto: `python -m venv .venv`, seguido de `.venv\Scripts\python.exe -m pip install -r requirements.txt`. Para comprobar el entorno: `.venv\Scripts\python.exe -m pip check` y `.venv\Scripts\python.exe -m pytest -q`. La instalación requiere acceso a los paquetes y no se realizó durante esta auditoría.
 
 ## Contexto y alcance previsto
 
@@ -26,9 +38,9 @@ Se plantean 60 minutos manuales frente a 5 minutos de intervención humana por e
 
 ## Organización y próximos pasos
 
-Los documentos de trabajo se encuentran en [docs](docs/PROJECT_SPEC.md); el plan está en [docs/ROADMAP.md](docs/ROADMAP.md) y la arquitectura preliminar en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Los archivos recibidos se preservarán en `data/raw/` y los datos ficticios existentes en `data/simulated/`, sin sobrescritura ni regeneración. No se incluyen datos en esta inicialización.
+Los documentos de trabajo se encuentran en [docs](docs/PROJECT_SPEC.md); el plan está en [docs/ROADMAP.md](docs/ROADMAP.md) y la arquitectura en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Los datos ficticios incorporados se conservan en `data/simulated/` sin sobrescritura ni regeneración.
 
-Se emplean Python, Pandas, OpenPyXL y Pytest para el perfilamiento y sus pruebas. Streamlit, Power Automate e IA configurable se contemplan para etapas posteriores, sujetos a diseño y autorización.
+Se emplean Python, Pandas, OpenPyXL y Pytest; el análisis local está implementado. Streamlit, Power Automate Cloud y las conexiones reales de IA siguen sujetos a autorización y trabajo posterior.
 
 ## Fase 01 — datos simulados
 

@@ -1,5 +1,7 @@
 # Reglas de negocio y control
 
+Fase 06: un lote se procesa solo con marcador completo y huellas verificadas. No se crea un segundo borrador comercial para un lote ya preparado; se registran alertas locales de error, no envíos. La recuperación de informes dañados exige opción explícita y cuarentena.
+
 Fase 05.1: meta presupuestal 100 %, desviación excepcional desde 200 %, margen bajo menor a 20 %, variación relevante absoluta desde 10 %, y umbrales de una combinación agotada, una de baja rotación y una advertencia. Son parámetros académicos editables. Se revisa calibración ante cumplimiento excepcional sin diagnosticar error. El saldo positivo en otra tienda solo identifica una candidata potencial; no autoriza transferencias ni demuestra excedentes.
 
 En Fase 05 las prioridades derivan de umbrales configurables: agotados iguales o superiores al umbral son alta; margen inferior al umbral, baja rotación presente o advertencias del último lote son media; otros hechos son baja. Los umbrales son académicos. No se atribuyen causas ni se ejecutan acciones. La redistribución requiere disponibilidad confirmada en otras tiendas y los candidatos IQR no son errores confirmados.

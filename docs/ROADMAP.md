@@ -1,10 +1,16 @@
 # Hoja de ruta
 
+Hito 04: corregido el campo `automation_id` de contingencia en la plantilla local canónica. Queda pendiente comparar el bloque completo de PAD con una exportación posterior a la última edición. La regeneración de archivados requiere una operación futura explícita, autorizada y auditable, aún no implementada.
+
+Fase 06.1: clasificación explícita de lotes archivados, inexistentes, incompletos e inválidos, y consulta local de pendientes. La integración de la consulta en PAD queda para una sesión posterior.
+
+Fase 06: orquestación local implementada y flujo PAD creado y probado manualmente por el usuario para SUCCESS, SKIPPED, REJECTED y FAILED, notificaciones, JSON inválido y una excepción controlada. Cloud continúa en diseño documental y no se envían correos reales. Persisten pendientes la comparación de la plantilla con una exportación completa del flujo, la automatización desatendida, las pruebas de interrupción abrupta y concurrencia entre procesos y en red, la recuperación operativa, las políticas de respaldo y retención, y la revisión visual de Excel.
+
 Fase 05.1: fortalecimiento local con recomendaciones basadas en evidencia. Pendientes: revisión visual de Excel en escritorio, recuperación de reportes corruptos, pruebas reales de concurrencia/interrupción y validación separada de cualquier proveedor externo.
 
 Hito 03: auditoría y publicación de las fases 05 y 05.1. Pendientes adicionales: respaldo, retención e historización de maestros. Mejoras menores: localización de cifras en español colombiano e identificación explícita de segmentos destacados.
 
-Fase 05: análisis local y proveedor simulado con contingencia; antes de cualquier activación real se requieren autorización explícita y pruebas de integración, privacidad y costos. La Fase 06 queda pendiente de definición y autorización.
+Fase 05: análisis local y proveedor simulado con contingencia; antes de cualquier activación real se requieren autorización explícita y pruebas de integración, privacidad y costos. El estado posterior de Fase 06 se indica arriba.
 
 1. **Identificación:** precisar problema, actores, fuentes, reglas, indicadores y criterios de aceptación.
 2. **Diseño:** acordar contratos de datos, arquitectura, seguridad, trazabilidad y distribución; evaluar IA y servicios antes de cualquier integración.

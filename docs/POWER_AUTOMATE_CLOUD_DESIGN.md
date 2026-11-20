@@ -1,0 +1,7 @@
+# Diseño futuro de Power Automate Cloud
+
+Diseño únicamente documental: recibir correo mediante un conector autorizado; verificar remitente y política de adjuntos; copiar a un área aislada; validar formatos y huellas; publicar `READY.json` al finalizar; activar el flujo de escritorio; comprobar estado, identificadores y huellas de los adjuntos antes de distribución; enviar alertas separadas ante excepciones. El envío requiere una autorización posterior y una estrategia durable contra duplicados y carreras. El borrador local no autoriza enviar ni marca `SENT`.
+
+Para activar flujos de escritorio desde la nube Microsoft documenta cuenta profesional o educativa, máquina o grupo registrado, conexión y licencias apropiadas. La modalidad asistida requiere una sesión abierta; la desatendida usa capacidad/licencia apropiada y una sesión administrada por Power Automate. Los requisitos exactos de plan, entorno, conectores, políticas y capacidad deben confirmarse antes de adquirir o activar nada. Véanse [desencadenar flujos de escritorio](https://learn.microsoft.com/en-us/power-automate/desktop-flows/trigger-desktop-flows), [ejecución desatendida](https://learn.microsoft.com/en-us/power-automate/desktop-flows/run-unattended-desktop-flows) y [tipos de licencia](https://learn.microsoft.com/power-platform/admin/power-automate-licensing/types).
+
+No se han configurado cuentas, buzones, conectores, licencias ni máquinas registradas. Se requieren controles de acceso, retención, prevención de malware y protección de secretos antes de una integración real.

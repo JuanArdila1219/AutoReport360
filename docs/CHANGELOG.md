@@ -1,5 +1,25 @@
 # Registro de cambios
 
+## Auditoría del Hito 04
+
+- Se registraron las pruebas manuales de PAD comunicadas por el usuario y se identificó una diferencia entre el contrato de excepción indicado y la plantilla local.
+- Se corrigió el campo de identificación de contingencia, con prueba local, y se documentó la política conservadora para informes de lotes archivados.
+
+## Fase 06.2
+
+- Plantilla inline para PAD con JSON normalizado, preservación del código de Python y contingencia técnica; pruebas locales con proceso simulado.
+- Guía de ramas de error en PAD y límites de captura ante fallos del anfitrión, sin alterar políticas de Windows.
+
+## Fase 06.1
+
+- Verificación de evidencia archivada antes de omitir un lote; motivos estructurados y consulta de bandeja de solo lectura.
+- Documentación de la primera ejecución real desde PAD y pruebas de regresión de errores y duplicados.
+
+## Fase 06
+
+- Orquestación local con recepción por huellas, diarios, reportes y borradores sin envío; bloqueo y recuperación explícita de reportes dañados en cuarentena.
+- Script PowerShell y guías documentales para Power Automate Desktop y Cloud, sin configurar ni ejecutar servicios externos.
+
 ## Hito 03
 
 - Auditoría de las fases 05 y 05.1, validación del modo local, proveedor simulado, contingencia, idempotencia, compatibilidad y huellas. Ver `reports/audit_hito03.md`.

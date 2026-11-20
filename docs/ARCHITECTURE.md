@@ -1,10 +1,14 @@
 # Arquitectura preliminar
 
+Fase 06 agrega una capa local: bandeja con marcador y huellas → pipeline existente → análisis local → informes enriquecidos verificados → borrador de distribución local. Un diario por contenido y bloqueo de espacio facilitan reintentos y evitan borradores repetidos; la cuarentena requiere una opción explícita.
+
+Según la evidencia manual comunicada por el usuario, se creó el flujo **AutoReport360 - Procesamiento Comercial** en Power Automate Desktop, que invoca el motor Python. Se probaron SUCCESS, SKIPPED, REJECTED y FAILED, las notificaciones, la detención ante JSON inválido y una excepción controlada de PowerShell. No se ha implementado el envío real de correos. La plantilla del repositorio no puede declararse idéntica al bloque de PAD sin una exportación completa verificable. No se ha implementado automatización desatendida ni integración de Power Automate Cloud.
+
 Fase 05.1 incorpora `src/ai_analysis/commercial_rules.py` como capa determinística sobre el catálogo y las fuentes validadas. La huella incluye sus módulos, configuración e instrucciones; el generador valida el contrato y enlaza su SHA-256. No hay conexiones reales ni decisiones automáticas.
 
 Fase 05: un análisis de reglas consume la salida validada y produce hechos con evidencia; un proveedor inyectable selecciona únicamente IDs existentes. Los informes reciben opcionalmente ese JSON y validan su vínculo con el origen. La CLI mantiene deshabilitado el acceso externo y usa contingencia local ante fallo.
 
-Propuesta conceptual sujeta a validación de fuentes, contratos, fórmulas y canales. Ningún componente del flujo está implementado en Fase 00.
+La siguiente propuesta conceptual describe el estado histórico de la Fase 00, antes de implementar los componentes indicados en las secciones posteriores.
 
 ```mermaid
 flowchart LR
@@ -25,7 +29,7 @@ flowchart LR
     K -.-> G
 ```
 
-Python y Pandas se proponen para procesamiento, OpenPyXL para archivos Excel y Streamlit para visualización. Power Automate se contempla como orquestador y canal potencial; IA y distribución requieren una decisión de diseño y autorización antes de conectar servicios. La ejecución debe preservar las fuentes, identificar insumos y ejecuciones, registrar incidencias y separar duración del robot de intervención humana. No se ha seleccionado proveedor de IA ni definido contratos de integración.
+En la propuesta inicial se contemplaban Python y Pandas para procesamiento, OpenPyXL para Excel, Streamlit para visualización y Power Automate para orquestación. El estado implementado se describe en las secciones de cada fase. Las conexiones reales de IA y la distribución requieren autorización; la ejecución debe preservar las fuentes, registrar incidencias y separar duración del robot de intervención humana.
 
 ## Implementado en Fase 02
 
